@@ -1,0 +1,97 @@
+
+
+<div class="row">
+    <form #userTemplateForm="ngForm">
+        <div class="col-md-5">
+            <h1>Template-Driven Form Validation</h1>
+            <table class="table">
+                <tr>
+                    <td> Name</td>
+                    <td> <input type="text" required minlength="3" #name="ngModel" name="name"
+                            [(ngModel)]="userObj.name" /></td>
+                    @if(name.touched) {
+                    @if(name.errors?.['required']){
+                    <td style="color:red">Name is required</td>
+                    }
+                    @if(name.errors?.['minlength']){
+                    <td style="color:red">Name must be at least 3 characters</td>
+                    }
+                    }
+                </tr>
+                <tr>
+                    <td> Email</td>
+                    <td> <input type="text" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #email="ngModel"  name="email" [(ngModel)]="userObj.email" /></td>
+                    @if(email.touched) {
+                    @if(email.errors?.['required']){
+                    <td style="color:red">Email is required</td>
+                    }
+                    @if(email.errors?.['pattern']){
+                    <td style="color:red">Please enter a valid email address</td>
+                    }
+                    }
+                </tr>
+                <tr>
+                    <td> Phone</td>
+                    <td> <input type="text" #phone="ngModel" name="phone" [(ngModel)]="userObj.phone" /></td>
+                </tr>
+                <tr>
+                    <td> Website</td>
+                    <td> <input type="text" #website="ngModel" name="website" [(ngModel)]="userObj.website" /></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td>
+                        <button class="btn btn-primary" [disabled]="userTemplateForm.invalid" (click)="addUser()">Save</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <form [formGroup]="userForm">
+            <h1>Reactive Form Validation</h1>
+            <table class="table">
+                <tr>
+                    <td> Name</td>
+                    <td> <input type="text" name="custname"
+                            formControlName="custname" /></td>
+                    @if(userForm.get('custname')?.touched) {
+                    @if(userForm.get('custname')?.errors?.['required']){
+                    <td style="color:red">Name is required</td>
+                    }
+                    @if(userForm.get('custname')?.errors?.['minlength']){
+                    <td style="color:red">Name must be at least 3 characters</td>
+                    }
+                    }
+                </tr>
+                <tr>
+                    <td> Email</td>
+                    <td> <input type="text" name="custemail" formControlName="custemail" /></td>
+                    @if(userForm.get('custemail')?.touched) {
+                    @if(userForm.get('custemail')?.errors?.['required']){
+                    <td style="color:red">Email is required</td>
+                    }
+                    @if(userForm.get('custemail')?.errors?.['email']){
+                    <td style="color:red">Please enter a valid email address</td>
+                    }
+                    }
+                </tr>
+                <tr>
+                    <td> Phone</td>
+                    <td> <input type="text" name="phone" formControlName="custphone" /></td>
+                </tr>
+                <tr>
+                    <td> Website</td>
+                    <td> <input type="text" name="website" formControlName="custwebsite" /></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td>
+                        <button class="btn btn-primary" [disabled]="userForm.invalid" (click)="addUser()">Save</button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </form>
+</div>

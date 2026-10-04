@@ -1,0 +1,22 @@
+<p>resoure-api works!</p>
+<div>
+    <div class="col-md-3">
+             <ul>
+                @if(userData.hasValue()){
+                    @for(item of userData.value()?? [];track $index){
+                        <li>{{item.name}}</li>
+                    }
+                }
+             </ul>
+    </div>
+     <div class="col-md-3">
+        <span>RS Resource</span>
+             <ul>
+                @if(userList.hasValue()){
+                    @for(item of userData.value()?? [];track $index){
+                        <li>{{item.name}}</li>
+                    }
+                }
+             </ul>
+    </div>
+</div>

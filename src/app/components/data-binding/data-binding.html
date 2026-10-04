@@ -1,0 +1,20 @@
+<p>data-binding works!</p>
+
+<!-- two-way databinding -->
+<input type="text" [(ngModel)]="courseName" /> <br>
+
+ <!-- interpolation  -->
+ <span [class]="myColor">{{courseName}}</span> <br>
+
+ <!-- property binding  -->
+  <input type="text" [value]="courseName" /> <br>
+ <input [type]="inputControl" [value]="courseName" /> <br>
+
+ <!-- event binding -->
+ <button (click)="ShowWelecome()">Submit</button> <br>
+
+ <select (change)="ChangedCourseName()">
+   <option [value]="courseName">Angular 17</option>
+   <option value="React">React</option>
+   <option value="Vue">Vue</option>
+<br>

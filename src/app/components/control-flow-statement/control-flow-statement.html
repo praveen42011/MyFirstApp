@@ -1,0 +1,76 @@
+<p>control-flow-statement works!</p>
+
+<table>
+    <tr>
+        <td>
+            @if(isShow == true)
+            {
+            <p> My learning</p>
+            }
+            @else{
+            <p> Element not true</p>
+            }
+
+        </td>
+        <td><button class="btn btn-success" (click)="ShowP(true)">Show</button></td>
+        <td><button class="btn btn-danger" (click)="ShowP(false)">Hide</button></td>
+    </tr>
+    <tr>
+        <td>
+            @if(monthName == 'jan')
+            {
+            <p>January</p>
+            }
+            @else if(monthName == 'feb')
+            {
+            <p>February</p>
+            }
+            @else if(monthName == 'mar')
+            {
+            <p>March</p>
+            }
+            @else if(monthName == 'apr')
+            {
+            <p>April</p>
+            }
+            @else{
+            <p>Invalid month</p>
+            }
+        <td>
+        <td>
+            <input type="text" [(ngModel)]="monthName" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                @for(item of fruits;track $index){
+                <li>{{ item }}</li>
+                }
+            </ul>
+        </td>
+        <td>
+            <select>
+                @for(item of fruits;track $index){
+                <option>{{ item }}</option>
+                }
+            </select>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Customer Name</th>
+        <th>Customer Age</th>
+        <th>Customer Address</th>
+    </tr>
+    @for(item of CustomerDretals;track $index){
+    <tr>
+
+        <td>{{ item.CustomerName }}</td>
+        <td>{{ item.CustomerAge }}</td>
+        <td>{{ item.CustomerAddress }}</td>
+
+    </tr>
+    }ng
+</table>

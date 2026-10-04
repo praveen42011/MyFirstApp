@@ -1,0 +1,52 @@
+<p>attribute-directive works!</p>
+
+<span [ngClass]="colorName()"> Dynamic color</span>
+
+<button (click)="SetColor('bg-success')">Green</button>
+<button (click)="SetColor('bg-danger')">Red</button>
+<br>
+<span [ngStyle]="{ 'background-color': IsColor == true ? 'red' : 'green' }"> Dynamic color</span>
+<button (click)="Toggle()">Toggle</button>
+<br>
+<div>
+    <span>Course: {{ courseName }}</span>  :: 
+
+    <span> {{ courseName |uppercase}}</span>
+    <br>
+    <span>Student: {{ StudentName }}</span> ::
+    <br>
+    <span>Student: {{ StudentName |lowercase }}</span>
+</div>
+<table>
+    <tr>
+        <td>
+            <span>Student: {{ studentList | slice:0:3 }}</span>
+        </td>
+         <td>
+            <span>Student: {{ studentList | slice:3 }}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>Student Obj: {{ studentObj }}</span>
+        </td>
+         <td>
+            <span>Student Json: {{ studentObj | json }}</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>currentDate: {{ currentDate }}</span>
+        </td>
+         <td>
+            <span>{{ currentDate | date }}</span>
+        </td>
+         <td>
+            <span>
+                {{ currentDate | date:'dd-MM-yy' }}</span>
+        </td>
+         <td>
+            <span>{{ currentDate | date:'dd-MMM-yyyy' }}</span>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,29 @@
+<p>pipeexample works!</p>
+<div class="row">
+    <div class="col-md-3">
+        <p>Course Name: {{corseName}}</p>
+        <p>Course Name: {{corseName | lowercase}}</p>
+        <p>Course Name: {{corseName | uppercase}}</p>
+    </div>
+
+    <div class="col-md-3">
+        <p>Numbers: {{Numbers}}</p>
+        <p>Slice Numbers: {{Numbers | slice:0:2}}</p>
+        <p>Slice Numbers: {{Numbers | slice:4}}</p>
+    </div>
+    <div class="col-md-3">
+        <p>Student Object: {{studentObj}}</p>
+        <p>Student Json: {{studentObj | json}}</p>
+    </div>
+    <div class="col-md-3">
+        <p>Current Date: {{currentDate}}</p>
+        <p>{{currentDate | date:'dd-MM-yyyy'}}</p>
+        <p>{{currentDate | date:'dd-MMM-yy'}}</p>
+        <p>{{currentDate | date:'hh:mm:ss'}}</p>
+        <p>{{currentDate | date:'hh:mm a'}}</p>
+    </div>
+    <div class="col-md-3">
+        <p>Student Custom pipe: {{studentObj.name | na}}</p>
+        <p>Student Custom pipe adress field: {{studentObj.address | na}}</p>
+    </div>
+</div>
